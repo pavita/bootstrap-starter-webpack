@@ -4,7 +4,7 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
 
 ## 1. Requirements
 
-[Node.js](https://nodejs.org/en/) to be installed on your system. It was tested with version 12 and newer.
+[Node.js](https://nodejs.org/en/) or [Yarn](https://yarnpkg.com/) to be installed on your system. 
 
 ## 2. Quick Start
 
@@ -36,6 +36,9 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
     ```bash
     yarn install
     ```
+    ```bash
+    npm install
+    ```
 
 5. Run webpack
 
@@ -44,9 +47,15 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
     ```bash
     yarn start
     ```
+    ```bash
+    npm run start
+    ```
 
     Start Webpack and only tell it to watch for changes in JS and SCSS files, to recompile the needed assets.
 
+    ```bash
+    yarn dev
+    ```
     ```bash
     npm run dev
     ```
@@ -55,4 +64,7 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
 
     ```bash
     yarn build
+    ```
+      ```bash
+    yarn run build
     ```
