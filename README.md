@@ -1,1 +1,1 @@
-# bootstrap5-starter-webpack
+# bootstrap-starter-webpack
