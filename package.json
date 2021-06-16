@@ -1,0 +1,35 @@
+{
+  "name": "bootstrap4-starter-webpack",
+  "version": "1.0.0",
+  "description": "A simple boilerplate using Bootstrap 5, Webpack and Babel.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --config webpack.config.js --mode production",
+    "dev": "webpack --config webpack.config.js --mode development --watch",
+    "images": "node ./bin/images.js"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.9.2",
+    "bootstrap": "^5.0.1",
+    "bootstrap-icons": "^1.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "autoprefixer": "^10.2.6",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "dotenv-webpack": "^7.0.3",
+    "fast-glob": "^3.2.5",
+    "mini-css-extract-plugin": "^1.6.0",
+    "node-sass": "^6.0.0",
+    "path": "^0.12.7",
+    "postcss-loader": "^6.1.0",
+    "sass-loader": "^12.1.0",
+    "sharp": "^0.28.3",
+    "webpack": "^5.39.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "slider.scss",
+        "../_variables.scss"
+    ],
+    "names": [],
+    "file": "slider.css"
+}
