@@ -1,7 +1,8 @@
 {
-  "name": "bootstrap4-starter-webpack",
+  "name": "bootstrap-starter-webpack",
   "version": "1.0.0",
-  "description": "A simple boilerplate using Bootstrap 5, Webpack and Babel.",
+  "description": "A simple starter package using Bootstrap 5, Webpack and Babel.",
+  "author": "Pavita J",
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
