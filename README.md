@@ -36,6 +36,7 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
     ```bash
     yarn install
     ```
+    or
     ```bash
     npm install
     ```
@@ -47,6 +48,7 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
     ```bash
     yarn start
     ```
+    or
     ```bash
     npm run start
     ```
@@ -56,6 +58,7 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
     ```bash
     yarn dev
     ```
+    or
     ```bash
     npm run dev
     ```
@@ -65,6 +68,7 @@ Basic front-end project setup for front-end project using [Bootstrap Framework](
     ```bash
     yarn build
     ```
-      ```bash
-    yarn run build
+    or
+    ```bash
+    npm run build
     ```
