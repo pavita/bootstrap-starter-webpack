@@ -1,88 +1,57 @@
-const webpack = require("webpack");
-const Dotenv = require('dotenv-webpack');
+const miniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
-    // Define the entry points of our application (can be multiple for different sections of a website)
-    entry: {
-        main: './src/js/main.js',
-    },
-
-    // Define the destination directory and filenames of compiled resources
-    output: {
-        filename: "js/[name].js",
-        path: path.resolve(__dirname, "./build")
-    },
-    
-    devServer: {
-        historyApiFallback: true,
-        port: process.env.PORT || 4000, // Port Number
-        host: 'localhost', // Change to '0.0.0.0' for external facing server
-        contentBase: 'build/', // Relative directory for base of server
-        publicPath: '/', // Live-reload
-        watchContentBase: true
-    },
-
-    // Define development options
-    devtool: "source-map",
-
-    // Define loaders
-    module: {
-        rules: [
-            // Use babel for JS files
-            {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            "@babel/preset-env"
-                        ]
-                    }
-                }
+  entry: "./src/js/main.js",
+  plugins: [new miniCssExtractPlugin({
+    filename: "css/[name].css",
+    chunkFilename: "[id].css"
+  })],
+  output: {
+    filename: "main.js",
+    path: path.resolve(__dirname, "dist"),
+  },
+  devServer: {
+    static: path.resolve(__dirname, "dist"),
+    port: 8080,
+    hot: true,
+  },
+  module: {
+    rules: [
+      {
+        mimetype: "image/svg+xml",
+        scheme: "data",
+        type: "asset/resource",
+        generator: {
+          filename: "icons/[hash].svg",
+        },
+      },
+      {
+        test: /\.(scss)$/,
+        use: [
+          {
+            // Extracts CSS for each JS file that includes CSS
+            loader: miniCssExtractPlugin.loader,
+          },
+          {
+            loader: "css-loader",
+            options: {
+                url: false,
+              },
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              postcssOptions: {
+                plugins: () => [require("autoprefixer")],
+              },
             },
-            // CSS, PostCSS, and Sass
-            {
-                test: /\.(scss|css)$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: {
-                            importLoaders: 2,
-                            sourceMap: true,
-                            url: false,
-                        }
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            postcssOptions: {
-                                plugins: [
-                                    'autoprefixer',
-                                ]
-                            }
-                        }
-                    },
-                    'sass-loader'
-                ],
-            },
+          },
+          {
+            loader: "sass-loader",
+          },
         ],
-    },
-
-    // Define used plugins
-    plugins: [
-        // Load .env file for environment variables in JS
-        new Dotenv({
-            path: "./.env"
-        }),
-
-        // Extracts CSS into separate files
-        new MiniCssExtractPlugin({
-            filename: "css/[name].css",
-            chunkFilename: "[id].css"
-        }),
+      },
     ],
+  },
 };
